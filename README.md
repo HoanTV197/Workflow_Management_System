@@ -1,5 +1,5 @@
 Demo project based on Laravel 6 which implements recurring events in database, showing them will [FullCalendar](https://fullcalendar.io) JavaScript library.
-
+Video demo : https://drive.google.com/file/d/1Nao22iV2QThBdOqX46ys35m-RELQOlHs/view?usp=sharing
 
 
 ![Laravel FullCalendar recurring events](https://quickadminpanel.com/blog/wp-content/uploads/2019/11/Screen-Shot-2019-11-07-at-3.57.27-PM-1024x692.png)
