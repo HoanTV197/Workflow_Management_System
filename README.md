@@ -12,16 +12,24 @@ Read the full article-tutorial: [Laravel + FullCalendar: Create/Edit Recurring E
 
 ![Laravel FullCalendar recurring events 03](https://quickadminpanel.com/blog/wp-content/uploads/2019/11/Screen-Shot-2019-11-07-at-4.02.17-PM.png)
 
+![Laravel FullCalendar recurring events 04](https://drive.google.com/file/d/1vfFsAzXHW_qVWEY4p4zd4EWn0MIl4z5X/view?usp=drive_link)
+
+![Laravel FullCalendar recurring events 05](https://drive.google.com/file/d/19tXLkuIhqswXQxC6LvcauAVE5BSOxnPQ/view?usp=sharing)
+
+![Laravel FullCalendar recurring events 05](https://drive.google.com/file/d/1aMcsU5g5JTpu0BZOCEXtCHNDWiRmyDhc/view?usp=sharing)
+
+![Laravel FullCalendar recurring events 05](https://drive.google.com/file/d/1X53VH0Jtyf8oC7b0shbUMUPcfSW0Sxlq/view?usp=sharing)
 ---
 
 ## How to use
 
-- Clone the repository with __git clone__
+- Clone the repository with __git clone https://github.com/HoanTV197/Workflow_Management_System.git__
 - Copy __.env.example__ file to __.env__ and edit database credentials there
 - Run __composer install__
 - Run __php artisan key:generate__
 - Run __php artisan migrate --seed__ (it has some seeded data for your testing)
 - That's it: launch the main URL and login with credentials __admin@admin.com__ - __password__ 
+- Database : phpmyadmin
 
 ---
 
