@@ -1,10 +1,6 @@
 Demo project based on Laravel 6 which implements recurring events in database, showing them will [FullCalendar](https://fullcalendar.io) JavaScript library.
 
-Project is partly generated with [QuickAdminPanel](https://2019.quickadminpanel.com) using [System Calendar module](https://www.youtube.com/watch?v=gkEKNsU6tmA)
 
-Read the full article-tutorial: [Laravel + FullCalendar: Create/Edit Recurring Events](https://quickadminpanel.com/blog/laravel-fullcalendar-createedit-recurring-events/)
-
----
 
 ![Laravel FullCalendar recurring events](https://quickadminpanel.com/blog/wp-content/uploads/2019/11/Screen-Shot-2019-11-07-at-3.57.27-PM-1024x692.png)
 
@@ -22,13 +18,19 @@ Read the full article-tutorial: [Laravel + FullCalendar: Create/Edit Recurring E
 ---
 
 ## How to use
+<<<<<<< HEAD
 
 - Clone the repository with __git clone https://github.com/HoanTV197/Workflow_Management_System.git__
+=======
+- Open Xampp
+- Clone the repository with __git clone__
+>>>>>>> 119d7e227b840dfece6dfb23803937704e7fb1e9
 - Copy __.env.example__ file to __.env__ and edit database credentials there
 - Run __composer install__
 - Run __php artisan key:generate__
 - Run __php artisan migrate --seed__ (it has some seeded data for your testing)
 - That's it: launch the main URL and login with credentials __admin@admin.com__ - __password__ 
+<<<<<<< HEAD
 - Database : phpmyadmin
 
 ---
@@ -46,3 +48,6 @@ Basically, feel free to use and re-use any way you want.
 - FREE E-book: [50 Laravel Quick Tips (and counting)](https://laraveldaily.com/free-e-book-40-laravel-quick-tips-and-counting/)
 - Subscribe to our [YouTube channel Laravel Business](https://www.youtube.com/channel/UCTuplgOBi6tJIlesIboymGA)
 - Enroll in our [Laravel Online Courses](https://laraveldaily.teachable.com/)
+=======
+- Run php artisan serve --port=9000
+>>>>>>> 119d7e227b840dfece6dfb23803937704e7fb1e9
