@@ -18,7 +18,7 @@
     <div class="card-body">
         <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css' />
 
-        <div id='calendar'></div>
+        <div id='calendar'  ></div>
 
 
     </div>
@@ -29,7 +29,10 @@
 @parent
 <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js'></script>
-<script>
+  <script src="lib/jquery.min.js"></script>
+  <script src="lib/moment.min.js"></script>
+  <script src="fullcalendar/fullcalendar.js"></script>
+{{-- <script>
     $(document).ready(function () {
             // page is now ready, initialize the calendar...
             events={!! json_encode($events) !!};
@@ -40,5 +43,34 @@
 
             })
         });
+</script> --}}
+<script>
+    $(document).ready(function () {
+        // page is now ready, initialize the calendar...
+        events = {!! json_encode($events) !!};
+        $('#calendar').fullCalendar({
+            // put your options and callbacks here
+            events: events,
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay,agendaThreeDay'
+            },
+            defaultView: 'month',
+            views: {
+                agendaThreeDay: {
+                    type: 'agenda',
+                    duration: { days: 3 },
+                    buttonText: '3 days'
+                }
+            },
+            selectable: true,
+            selectHelper: true,
+            editable: true,
+            eventLimit: true, // allow "more" link when too many events
+            // Add more options as needed
+        });
+    });
 </script>
+
 @stop
