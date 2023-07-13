@@ -4,7 +4,11 @@
     <div class="col-md-6">
         <div class="card mx-4">
             <div class="card-body p-4">
-                <h1>{{ trans('panel.site_title') }}</h1>
+                <div class="col-md-6">
+                    <img src="dist/img/quanlycv.jpg" alt="Logo" class="img-fluid">
+                </div>
+                
+                <h1>{{ trans('Quản lý công việc') }}</h1>
 
                 <p class="text-muted">{{ trans('global.login') }}</p>
 

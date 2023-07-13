@@ -1,4 +1,18 @@
 @extends('layouts.admin')
+
+@section('title-page')
+    <title>WMS | calendar</title>
+@endsection
+@section('style')
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../../../plugins/fontawesome-free/css/all.min.css">
+  <!-- fullCalendar -->
+  <link rel="stylesheet" href="../../../../plugins/fullcalendar/main.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+@endsection
+
 @section('content')
 @can('event_create')
     <div style="margin-bottom: 10px;" class="row">
@@ -27,8 +41,8 @@
 
 @section('scripts')
 @parent
-<script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js'></script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.js'></script>
   <script src="lib/jquery.min.js"></script>
   <script src="lib/moment.min.js"></script>
   <script src="fullcalendar/fullcalendar.js"></script>
@@ -69,8 +83,10 @@
             editable: true,
             eventLimit: true, // allow "more" link when too many events
             // Add more options as needed
+            
         });
     });
 </script>
+
 
 @stop
