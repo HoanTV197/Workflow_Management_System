@@ -4,6 +4,17 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+{{-- xử lí thông báo --}}
+<script>
+  // Lắng nghe sự kiện click vào biểu tượng thông báo
+  document.getElementById('notificationIcon').addEventListener('click', function() {
+    // Hiển thị thông tin trong một cửa sổ pop-up hoặc thông báo
+    alert('You have a new notification');
+    // Hoặc bạn có thể hiển thị thông tin trong một phần tử HTML khác bằng cách thay đổi nội dung của phần tử đó
+    // Ví dụ: document.getElementById('notificationContent').innerText = 'You have a new notification';
+  });
+</script>
+
 
 <script>
   
@@ -15,9 +26,9 @@
 
              // Lấy dữ liệu phần trăm công việc từ máy chủ hoặc các nguồn khác
              var taskData = [
-               { label: 'Completed', percent: 60, color: '#28a745' },
-               { label: 'In Progress', percent: 30, color: '#ffc107' },
-               { label: 'Not Started', percent: 10, color: '#dc3545' }
+               { label: 'Đã hoàn thành', percent: 60, color: '#28a745' },
+               { label: 'Đang làm', percent: 30, color: '#ffc107' },
+               { label: 'Chưa bắt đầu', percent: 10, color: '#dc3545' }
              ];
         
              // Tạo biểu đồ hình tròn
@@ -57,7 +68,7 @@
     labels: ['Task 1', 'Task 2', 'Task 3', 'Task 4'],
     datasets: [{
       label: 'Progress',
-      data: [20, 50, 30, 80],
+      data: [70, 50, 30, 80],
       backgroundColor: '#36a2eb'
     }]
   };
@@ -112,6 +123,15 @@
   }
 </style>
 
+<style>
+  .card-title {
+    margin-bottom: 20px;
+  }
+
+
+</style>
+
+  
 
 
 
@@ -122,6 +142,7 @@
 
 
 @section('content')
+
 
 <form>
 <div class="row">
@@ -141,7 +162,7 @@
   <div class="col-4">
     <div class="card">
       <div class="card-header border-transparent">
-        <h3 class="card-title">Progress</h3>
+        <h3 class="card-title">Total Task</h3>
       </div>
       <div class="card-body p-0">
         <canvas id="taskChart"></canvas>
@@ -151,21 +172,18 @@
 
   {{-- //Biểu đồ cột --}}
  
-    <div class="col-8">
-      <div class="card">
-        <div class="card-header border-transparent">
-          <h3 class="card-title">Progress 
-            <button id="downloadChartButton" class="btn btn-primary">Download</button>
-
-          </h3>
-
-        </div>
-        <div class="card-body p-0">                    
-          
-            <canvas id="columnChart"></canvas>
-        </div>
-        </div>
+  <div class="col-8">
+    <div class="card">
+      <div class="card-header border-transparent d-flex justify-content-between align-items-center">
+        <h3 class="card-title">Progress</h3>
+        <button id="downloadChartButton" class="btn btn-primary">Download</button>
+      </div>
+      <div class="card-body p-0">
+        <canvas id="columnChart"></canvas>
+      </div>
     </div>
+  </div>
+  
 
 <div class="row" >
 
@@ -304,6 +322,67 @@
   </div>
 </div>
 
+<div class="col-6">
+  <div class="card">
+    <div class="card-header">
+      <h2 class="card-title">Project Team</h2>
+    </div>
+    <div class="card-body">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th style="width: 10px">#</th>
+            <th>Task</th>
+            <th>Progress</th>
+            <th style="width: 40px">Label</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1.</td>
+            <td>Team UI UX</td>
+            <td>
+              <div class="progress progress-xs">
+                <div class="progress-bar bg-danger" style="width: 55%"></div>
+              </div>
+            </td>
+            <td><span class="badge bg-danger">55%</span></td>
+          </tr>
+          <tr>
+            <td>2.</td>
+            <td>Team ITSS</td>
+            <td>
+              <div class="progress progress-xs">
+                <div class="progress-bar bg-warning" style="width: 70%"></div>
+              </div>
+            </td>
+            <td><span class="badge bg-warning">70%</span></td>
+          </tr>
+          <tr>
+            <td>3.</td>
+            <td>Team AI</td>
+            <td>
+              <div class="progress progress-xs progress-striped active">
+                <div class="progress-bar bg-primary" style="width: 30%"></div>
+              </div>
+            </td>
+            <td><span class="badge bg-primary">30%</span></td>
+          </tr>
+          <tr>
+            <td>4.</td>
+            <td>Team KTPM</td>
+            <td>
+              <div class="progress progress-xs progress-striped active">
+                <div class="progress-bar bg-success" style="width: 90%"></div>
+              </div>
+            </td>
+            <td><span class="badge bg-success">90%</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
 {{-- <Bảng progress> --}}
 <div class="col-6">
@@ -361,12 +440,13 @@
 </div>
   <!-- /.card -->
 
-  <div class="row">
-  
-    <h1 class="card-title" >
-      <i class="ion ion-clipboard mr-1"></i>
-      My Teams
-    </h1>
-  </div>
+<!-- Bảng Project Team -->
+
+
+
+
+
+
+          
 @endsection
 

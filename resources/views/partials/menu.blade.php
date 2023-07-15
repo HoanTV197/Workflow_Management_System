@@ -70,6 +70,27 @@
                     </a>
                 </li>
             @endcan
+            
+            <ul class="nav">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-users"></i>
+                    My Team
+                  </a>
+                </li>
+                <!-- Các mục điều hướng khác -->
+              </ul>
+
+              <ul class="nav">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-bell"></i>
+                    Notification
+                  </a>
+                </li>
+                <!-- Các mục điều hướng khác -->
+              </ul>
+
             <li class="nav-item">
                 <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
                     <i class="nav-icon fas fa-fw fa-sign-out-alt">
@@ -78,6 +99,8 @@
                     {{ trans('global.logout') }}
                 </a>
             </li>
+            
+           
         </ul>
 
     </nav>

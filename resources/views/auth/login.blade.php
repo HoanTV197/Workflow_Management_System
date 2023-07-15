@@ -4,7 +4,7 @@
     <div class="col-md-6">
         <div class="card mx-4">
             <div class="card-body p-4">
-                <div class="col-md-6">
+                <div class="text-center">
                     <img src="dist/img/quanlycv.jpg" alt="Logo" class="img-fluid">
                 </div>
                 
