@@ -128,7 +128,22 @@
     margin-bottom: 20px;
   }
 
+/* // xử lí hình ảnh */
+  .container {
+  position: relative;
 
+}
+
+.copy {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+}
 </style>
 
   
@@ -142,8 +157,13 @@
 
 
 @section('content')
-
-
+<div class="copy" style="color :blue">
+  <h3>Vì một cuộc sống tốt đẹp hơn cho mọi người</h3>
+</div>
+<div class="container">
+  <img class="img" width="1000" height="500" src="https://ircdn.vingroup.net/storage/Uploads/Photos/Landmark81banner.jpg">
+ 
+</div>
 <form>
 <div class="row">
   

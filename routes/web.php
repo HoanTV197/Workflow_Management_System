@@ -13,6 +13,10 @@ Auth::routes(['register' => false]);
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::get('/', 'HomeController@index')->name('home');
+    Route::get('/myteam', 'HomeController@myteam')->name('myteam');
+    Route::get('/inbox', 'HomeController@inbox')->name('inbox');
+
+
     // Permissions
     Route::delete('permissions/destroy', 'PermissionsController@massDestroy')->name('permissions.massDestroy');
     Route::resource('permissions', 'PermissionsController');
@@ -31,7 +35,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     Route::get('system-calendar', 'SystemCalendarController@index')->name('systemCalendar');
 
-    Route::get('/my-team', 'MyTeamController@index')->name('admin.welcome');
+    Route::get('/my-team', 'MyTeamController@index')->name('admin.myteam.index');
 
 
 });

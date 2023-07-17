@@ -8,4 +8,17 @@ class HomeController
     {
         return view('home');
     }
+
+
+    // Xử lí My Team
+    public function myteam()
+    {
+        return view('myteam');
+    }
+    
+    public function inbox()
+    {
+        return view('inbox');
+    }
+
 }

@@ -73,7 +73,7 @@
             
             <ul class="nav">
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route("admin.myteam") }}" class="nav-link">
                         <i class="nav-icon fas fa-users"></i>
                     My Team
                   </a>
@@ -83,7 +83,7 @@
 
               <ul class="nav">
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{ route("admin.inbox") }}" class="nav-link">
                         <i class="nav-icon fas fa-bell"></i>
                     Notification
                   </a>
