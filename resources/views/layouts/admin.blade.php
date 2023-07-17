@@ -20,7 +20,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/css/select2.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/css/bootstrap-datetimepicker.min.css" rel="stylesheet" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.css" rel="stylesheet" />
-    <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
+    <link href="{{ asset('css/custom.css') }}?v=2" rel="stylesheet" />
     <link rel="stylesheet" href="fullcalendar/fullcalendar.css" />
 
 
@@ -35,50 +35,25 @@
   <!-- Theme style -->
   <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
       <style>
-        /* CSS cho nút thu phóng */
-.fullscreen-toggler {
-  border: none;
-  background: transparent;
-  font-size: 18px;
-  color: #fff;
-}
-
-/* CSS cho navbar khi ở chế độ thu phóng */
-body.app.fullscreen .app-header {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999;
-}
-
-body.app.fullscreen .app-body {
-  margin-top: 60px; /* Điều chỉnh margin-top để không bị che phủ bởi phần navbar */
-}
-
-/* Ẩn phần sidebar khi ở chế độ thu phóng */
-body.app.fullscreen .sidebar-show .sidebar {
-  display: none;
-}
-
-/* Ẩn các phần tử không cần thiết khi ở chế độ thu phóng */
-body.app.fullscreen .app-header .navbar-brand-minimized,
-body.app.fullscreen .app-header .navbar-toggler,
-body.app.fullscreen .app-header .navbar-nav,
-body.app.fullscreen .app-header .sidebar-toggler {
-  display: none;
-}
-
+      /* CSS cho nút dark mode */
+        .fullscreen-toggler.dark-mode {
+          border: none; /* Loại bỏ khung viền đen */
+          background: transparent;
+          font-size: 18px;
+          color: #fff;
+        }
         </style>
     @yield('styles')
 </head>
 
-<body class="app header-fixed sidebar-fixed aside-menu-fixed pace-done sidebar-lg-show">
-    <header class="app-header navbar">
+<body class="app header-fixed sidebar-fixed aside-menu-fixed pace-done sidebar-lg-show dark-mode">
+<header class="app-header navbar">
         <button class="navbar-toggler sidebar-toggler d-lg-none mr-auto" type="button" data-toggle="sidebar-show">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand">
+          <img src="https://i.ibb.co/HXg9VfC/t-i-xu-ng.png" alt="t-i-xu-ng" border="0" style="width: 35px; height: 35px;" />
+                  
             <span class="navbar-brand-full">{{ trans('WMS') }}</span>
             <span class="navbar-brand-minimized">{{ trans('WMS') }}</span>
         </a>
@@ -104,22 +79,26 @@ body.app.fullscreen .app-header .sidebar-toggler {
         </ul>
         
       
-        {{-- Thông báo --}}
         <ul class="nav navbar-nav ml-auto">
-          <!-- ... -->
           <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                  <i class="fa fa-bell"></i> <!-- Thêm biểu tượng thông báo, ví dụ: biểu tượng chuông -->
-                  <span class="badge badge-pill badge-danger">3</span> <!-- Thêm thẻ badge để hiển thị số thông báo chưa đọc -->
-              </a>
-              <div class="dropdown-menu dropdown-menu-right">
-                  <a class="dropdown-item" href="#">Hôm nay đã hết hạn làm UI UX</a>
-                  <a class="dropdown-item" href="#">Bạn đã hoàn thành 90% Đồ án 1</a>
-                  <a class="dropdown-item" href="#">Project AI đã hoàn thành 50%</a>
-                  <!-- ... Thêm các thông báo khác -->
-              </div>
+            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-bell"></i> <!-- Thêm biểu tượng thông báo, ví dụ: biểu tượng chuông -->
+              <span class="badge badge-pill badge-danger">3</span> <!-- Thêm thẻ badge để hiển thị số thông báo chưa đọc -->
+            </a>
+            <div class="dropdown-menu dropdown-menu-right">
+              <a class="dropdown-item" href="#">Hôm nay đã hết hạn làm UI UX</a>
+              <a class="dropdown-item" href="#">Bạn đã hoàn thành 90% Đồ án 1</a>
+              <a class="dropdown-item" href="#">Project AI đã hoàn thành 50%</a>
+              <!-- ... Thêm các thông báo khác -->
+            </div>
           </li>
-      </ul>
+          <li>
+            <button id="darkModeToggle" class="fullscreen-toggler" >
+              <i class="fa fa-moon"></i> <!-- Biểu tượng cho chế độ Dark Mode, bạn có thể thay đổi theo ý muốn -->
+            </button>
+          </li>
+        </ul>
+        
        
     </header>
 
@@ -179,14 +158,36 @@ body.app.fullscreen .app-header .sidebar-toggler {
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.full.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
     <script src="{{ asset('js/main.js') }}"></script>
+    
     <script>
-              $(document).ready(function () {
-          $(".fullscreen-toggler").click(function () {
-            $("body").toggleClass("fullscreen"); // Thêm hoặc xóa class 'fullscreen' cho thẻ body
-          });
-        });
+      
+  // Kiểm tra trạng thái Dark Mode từ localStorage
+  let isDarkMode = localStorage.getItem('darkMode') === 'true';
 
-    </script>
+  // Cập nhật giao diện dựa trên trạng thái Dark Mode
+  function updateDarkMode() {
+    if (isDarkMode) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+  }
+
+  // Bắt sự kiện khi người dùng bật/tắt Dark Mode
+  document.getElementById('darkModeToggle').addEventListener('click', function () {
+    isDarkMode = !isDarkMode; // Đảo ngược trạng thái
+
+    // Lưu trạng thái vào localStorage
+    localStorage.setItem('darkMode', isDarkMode);
+
+    updateDarkMode(); // Cập nhật giao diện
+  });
+
+  // Gọi hàm updateDarkMode() để cập nhật giao diện ban đầu
+  updateDarkMode();
+</script>
+
+     
     <script>
         $(function() {
   let copyButtonTrans = '{{ trans('global.datatables.copy') }}'       
