@@ -78,6 +78,34 @@
       $('#addDataModal').modal('hide');
     });
   </script>
+
+<script>
+    // Xử lý sự kiện click vào nút "Delete" hoặc "Edit" trong bảng
+    document.addEventListener('click', function(event) {
+      var target = event.target;
+      if (target.tagName === 'BUTTON') {
+        var action = target.getAttribute('data-action'); // Lấy action của nút (delete hoặc edit)
+        if (action === 'delete') {
+          // Xóa dòng tương ứng khi click vào nút "Delete"
+          var row = target.closest('tr');
+          row.remove();
+        } else if (action === 'edit') {
+          // Hiển thị thông tin dòng tương ứng trong modal khi click vào nút "Edit"
+          var row = target.closest('tr');
+          var taskName = row.cells[1].textContent;
+          var progress = row.cells[3].textContent.replace('%', '');
+          var deadline = row.cells[4].textContent;
+          var owner = row.cells[5].textContent;
+          
+          document.getElementById('taskName').value = taskName;
+          document.getElementById('progress').value = progress;
+          document.getElementById('deadline').value = deadline;
+          document.getElementById('owner').value = owner;
+          $('#addDataModal').modal('show');
+        }
+      }
+    });
+  </script>
 @endsection
 
 
@@ -123,7 +151,7 @@
             <th style="width: 40px">Label</th>
             <th style="width: 2cm">Deadline</th>
             <th style="width: 2cm">Owner</th>
-            <th style="width: 2cm"></th>
+            <th style="width: 2cm">Action</th>
  
           </tr>
         </thead>
@@ -139,6 +167,10 @@
             <td><span class="badge bg-danger">55%</span></td>
             <td>01/05 - 14/05</td>
             <td>Hoan TV</td>
+            <td> 
+                <button class="btn btn-danger btn-sm" data-action="delete">Delete</button> <!-- Nút Delete -->
+                <button class="btn btn-primary btn-sm" data-action="edit">Edit</button> <!-- Nút Edit -->
+            </td>
 
           </tr>
           <tr>
@@ -152,7 +184,9 @@
             <td><span class="badge bg-warning">70%</span></td>
             <td>15/05 - 30/05</td>
             <td> MV Khánh </td>
-
+            <td>
+                <button class="btn btn-danger btn-sm" data-action="delete">Delete</button> <!-- Nút Delete -->
+                <button class="btn btn-primary btn-sm" data-action="edit">Edit</button> <!-- Nút Edit --> </td>
           </tr>
           <tr>
             <td>3.</td>
@@ -165,7 +199,10 @@
             <td><span class="badge bg-primary">30%</span></td>
             <td>15/07 - 30/07</td>
             <td> VM Đăng</td>
-
+            <td> 
+                <button class="btn btn-danger btn-sm" data-action="delete">Delete</button> <!-- Nút Delete -->
+                <button class="btn btn-primary btn-sm" data-action="edit">Edit</button> <!-- Nút Edit -->
+            </td>
           </tr>
           <tr>
             <td>4.</td>
@@ -178,7 +215,9 @@
             <td><span class="badge bg-success">90%</span></td>
             <td> 01/07 - 30/07</td>
             <td> Hùng ND</td>
-
+            <td>
+                <button class="btn btn-danger btn-sm" data-action="delete">Delete</button> <!-- Nút Delete -->
+                <button class="btn btn-primary btn-sm" data-action="edit">Edit</button> <!-- Nút Edit --> </td>
           </tr>
         </tbody>
       </table>
