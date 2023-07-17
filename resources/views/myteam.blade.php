@@ -280,7 +280,6 @@ function progressColor(progress) {
     document.addEventListener('DOMContentLoaded', function() {
       // Dữ liệu từ bảng project team (số tiến độ)
       var progressData = [55, 70, 30, 90, 100];
-  
       // Màu sắc tương ứng với cột label
       var labelColors = ['red', 'orange', 'blue', 'green'];
   

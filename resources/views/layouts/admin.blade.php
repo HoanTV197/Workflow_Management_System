@@ -23,6 +23,53 @@
     <link href="{{ asset('css/custom.css') }}" rel="stylesheet" />
     <link rel="stylesheet" href="fullcalendar/fullcalendar.css" />
 
+
+     <!-- Google Font: Source Sans Pro -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <!-- SweetAlert2 -->
+  <link rel="stylesheet" href="../../plugins/sweetalert2/sweetalert2.min.css">
+  <!-- Toastr -->
+  <link rel="stylesheet" href="../../plugins/toastr/toastr.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+      <style>
+        /* CSS cho nút thu phóng */
+.fullscreen-toggler {
+  border: none;
+  background: transparent;
+  font-size: 18px;
+  color: #fff;
+}
+
+/* CSS cho navbar khi ở chế độ thu phóng */
+body.app.fullscreen .app-header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+body.app.fullscreen .app-body {
+  margin-top: 60px; /* Điều chỉnh margin-top để không bị che phủ bởi phần navbar */
+}
+
+/* Ẩn phần sidebar khi ở chế độ thu phóng */
+body.app.fullscreen .sidebar-show .sidebar {
+  display: none;
+}
+
+/* Ẩn các phần tử không cần thiết khi ở chế độ thu phóng */
+body.app.fullscreen .app-header .navbar-brand-minimized,
+body.app.fullscreen .app-header .navbar-toggler,
+body.app.fullscreen .app-header .navbar-nav,
+body.app.fullscreen .app-header .sidebar-toggler {
+  display: none;
+}
+
+        </style>
     @yield('styles')
 </head>
 
@@ -32,8 +79,8 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <a class="navbar-brand" href="#">
-            <span class="navbar-brand-full">{{ trans('Quản lý công việc') }}</span>
-            <span class="navbar-brand-minimized">{{ trans('Quản lý công việc') }}</span>
+            <span class="navbar-brand-full">{{ trans('WMS') }}</span>
+            <span class="navbar-brand-minimized">{{ trans('WMS') }}</span>
         </a>
         <button class="navbar-toggler sidebar-toggler d-md-down-none" type="button" data-toggle="sidebar-lg-show">
             <span class="navbar-toggler-icon"></span>
@@ -55,7 +102,25 @@
 
 
         </ul>
+        
       
+        {{-- Thông báo --}}
+        <ul class="nav navbar-nav ml-auto">
+          <!-- ... -->
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                  <i class="fa fa-bell"></i> <!-- Thêm biểu tượng thông báo, ví dụ: biểu tượng chuông -->
+                  <span class="badge badge-pill badge-danger">3</span> <!-- Thêm thẻ badge để hiển thị số thông báo chưa đọc -->
+              </a>
+              <div class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" href="#">Hôm nay đã hết hạn làm UI UX</a>
+                  <a class="dropdown-item" href="#">Bạn đã hoàn thành 90% Đồ án 1</a>
+                  <a class="dropdown-item" href="#">Project AI đã hoàn thành 50%</a>
+                  <!-- ... Thêm các thông báo khác -->
+              </div>
+          </li>
+      </ul>
+       
     </header>
 
     <div class="app-body">
@@ -114,6 +179,14 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.full.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
     <script src="{{ asset('js/main.js') }}"></script>
+    <script>
+              $(document).ready(function () {
+          $(".fullscreen-toggler").click(function () {
+            $("body").toggleClass("fullscreen"); // Thêm hoặc xóa class 'fullscreen' cho thẻ body
+          });
+        });
+
+    </script>
     <script>
         $(function() {
   let copyButtonTrans = '{{ trans('global.datatables.copy') }}'       

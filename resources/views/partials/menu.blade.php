@@ -81,15 +81,7 @@
                 <!-- Các mục điều hướng khác -->
               </ul>
 
-              <ul class="nav">
-                <li class="nav-item">
-                    <a href="{{ route("admin.inbox") }}" class="nav-link">
-                        <i class="nav-icon fas fa-bell"></i>
-                    Notification
-                  </a>
-                </li>
-                <!-- Các mục điều hướng khác -->
-              </ul>
+        
 
             <li class="nav-item">
                 <a href="#" class="nav-link" onclick="event.preventDefault(); document.getElementById('logoutform').submit();">
