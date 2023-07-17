@@ -161,7 +161,7 @@
   <h3>Vì một cuộc sống tốt đẹp hơn cho mọi người</h3>
 </div>
 <div class="container">
-  <img class="img" width="1000" height="500" src="https://ircdn.vingroup.net/storage/Uploads/Photos/Landmark81banner.jpg">
+  <img class="img" width="1000" height="700" src="https://ircdn.vingroup.net/storage/Uploads/Photos/Landmark81banner.jpg">
  
 </div>
 <form>

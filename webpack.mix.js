@@ -11,5 +11,11 @@ const mix = require('laravel-mix');
  |
  */
 
+// mix.js('resources/js/app.js', 'public/js')
+//    .sass('resources/sass/app.scss', 'public/css');
+
 mix.js('resources/js/app.js', 'public/js')
-   .sass('resources/sass/app.scss', 'public/css');
+   .sass('resources/sass/app.scss', 'public/css')
+   .styles([
+       'resources/css/custom.css', // Định nghĩa tệp CSS của bạn ở đây
+   ], 'public/css/custom.css');
